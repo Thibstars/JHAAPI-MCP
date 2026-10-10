@@ -36,6 +36,10 @@
             <artifactId>spring-ai-mcp-server-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.fasterxml</groupId>
+            <artifactId>classmate</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.github.thibstars</groupId>
             <artifactId>JHAAPI</artifactId>
             <version>${jhaapi.version}</version>

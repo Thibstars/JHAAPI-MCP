@@ -33,6 +33,9 @@ import com.github.thibstars.jhaapi.client.templates.TemplateService;
 import com.github.thibstars.jhaapi.client.templates.TemplateServiceImpl;
 import com.github.thibstars.jhaapi.client.updates.UpdateService;
 import com.github.thibstars.jhaapi.client.updates.UpdateServiceImpl;
+import com.github.thibstars.jhaapimcp.tools.HomeAssistantTools;
+import org.springframework.ai.tool.ToolCallbackProvider;
+import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 
@@ -157,5 +160,13 @@ public class HomeAssistantConfiguration {
     @ConditionalOnMissingBean
     public CalendarService calendarService(Configuration configuration) {
         return new CalendarServiceImpl(configuration);
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public ToolCallbackProvider homeAssistantToolCallbackProvider(HomeAssistantTools homeAssistantTools) {
+        return MethodToolCallbackProvider.builder()
+                .toolObjects(homeAssistantTools)
+                .build();
     }
 }

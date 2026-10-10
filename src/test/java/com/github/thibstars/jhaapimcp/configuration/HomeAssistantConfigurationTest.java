@@ -17,8 +17,11 @@ import com.github.thibstars.jhaapi.client.status.StatusService;
 import com.github.thibstars.jhaapi.client.sun.SunService;
 import com.github.thibstars.jhaapi.client.templates.TemplateService;
 import com.github.thibstars.jhaapi.client.updates.UpdateService;
+import com.github.thibstars.jhaapimcp.tools.HomeAssistantTools;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.springframework.ai.tool.ToolCallbackProvider;
 
 /**
  * Unit tests for HomeAssistantConfiguration.
@@ -86,6 +89,12 @@ class HomeAssistantConfigurationTest {
 
         CalendarService calendarService = homeAssistantConfiguration.calendarService(configuration);
         Assertions.assertNotNull(calendarService);
+
+        HomeAssistantTools homeAssistantTools = Mockito.mock(HomeAssistantTools.class);
+        ToolCallbackProvider toolCallbackProvider = homeAssistantConfiguration.homeAssistantToolCallbackProvider(homeAssistantTools);
+        Assertions.assertNotNull(toolCallbackProvider);
+        Assertions.assertNotNull(toolCallbackProvider.getToolCallbacks());
+        Assertions.assertTrue(toolCallbackProvider.getToolCallbacks().length > 0);
     }
 
     @Test

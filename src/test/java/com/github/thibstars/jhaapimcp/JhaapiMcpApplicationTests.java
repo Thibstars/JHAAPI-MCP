@@ -2,6 +2,7 @@ package com.github.thibstars.jhaapimcp;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
@@ -20,5 +21,6 @@ class JhaapiMcpApplicationTests {
     @Test
     void contextLoads() {
         Assertions.assertNotNull(this.applicationContext);
+        Assertions.assertNotNull(this.applicationContext.getBean(ToolCallbackProvider.class));
     }
 }
