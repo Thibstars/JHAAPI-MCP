@@ -97,7 +97,7 @@ spring.ai.mcp.server.type=SYNC
 spring.ai.mcp.server.stdio=true
 
 # Home Assistant Connection Settings
-homeassistant.base-url=http://homeassistant.local:8123/api
+homeassistant.base-url=${HOMEASSISTANT_BASE_URL:http://homeassistant.local:8123/api}
 homeassistant.token=${HOMEASSISTANT_TOKEN:your_long_lived_access_token_here}
 homeassistant.entity-enabled=false
 homeassistant.entity-identifier=switch.jhaapi_application
