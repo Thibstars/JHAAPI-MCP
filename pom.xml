@@ -23,7 +23,7 @@
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-ai.version>1.0.0-M6</spring-ai.version>
-        <jhaapi.version>1.0.15</jhaapi.version>
+        <jhaapi.version>1.0.16</jhaapi.version>
     </properties>
 
     <dependencies>
